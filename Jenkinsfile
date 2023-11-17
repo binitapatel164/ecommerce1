@@ -1,25 +1,30 @@
 pipeline {
     agent any
-
+    
     stages {
         stage('Checkout') {
             steps {
-                // Retrieves the source code from the specified Git repository
-                git 'https://github.com/binitapatel164/ecommerce1'
+                // Checkout the repository
+                git url: 'https://github.com/binitapatel164/ecommerce.git', branch: 'main'
             }
         }
 
-    stage('Build') {
+        stage('Build') {
             steps {
-                // Builds the application
-                sh 'mvn clean package' // Example command for Maven
+                // Perform build steps here
+                
+                git url: 'https://github.com/binitapatel164/ecommerce.git', branch: 'main'
+                
             }
         }
 
-        
-
-
+        stage('Test') {
+            steps {
+               
+                git url: 'https://github.com/binitapatel164/ecommerce.git', branch: 'main'
+                
+            }
+        }
     }
-
-
 }
+
