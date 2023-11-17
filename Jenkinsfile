@@ -43,18 +43,8 @@ pipeline {
             }
         }
         
-        stage('Monitoring/Reporting') {
-            steps {
-                // Monitoring setup or reporting mechanisms
-                // ...
-            }
-        }
+     
     }
     
-    post {
-        always {
-            // Clean-up steps or notifications
-            // ...
-        }
-    }
+
 }
