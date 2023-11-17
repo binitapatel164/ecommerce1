@@ -18,12 +18,19 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Unit Test') {
             steps {
                
-                git url: 'https://github.com/binitapatel164/ecommerce.git', branch: 'main'
+                sh 'mvn test'
                 
             }
+
+        stage('Integration Test') {
+            steps {
+                // Run integration tests (if applicable)
+                sh 'mvn integration-test' // Example command for Maven
+            }
+        }
         }
     }
 }
