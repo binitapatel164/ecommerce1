@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout source code from version control (e.g., Git)
-                git 'https://github.com/your/repository.git'
+                git 'https://github.com/binitapatel164/ecommerce1.git'
             }
         }
 
