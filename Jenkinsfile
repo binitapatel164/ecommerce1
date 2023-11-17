@@ -14,7 +14,7 @@ pipeline {
                 // Perform build steps here
                 
                 git url: 'https://github.com/binitapatel164/ecommerce.git', branch: 'main'
-                
+                sh 'mvn clean package'
             }
         }
 
