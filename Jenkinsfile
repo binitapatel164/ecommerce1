@@ -44,24 +44,8 @@ pipeline {
             }
         }
 
-        stage('Notify') {
-            steps {
-                // Notify teams or individuals about the build status
-                // This could be sending emails, Slack notifications, etc.
-                // Example: sendEmailNotification()
-            }
-        }
+
     }
 
-    post {
-        // Define post-build actions or notifications
-        success {
-            // Actions to perform when the build is successful
-            // Example: sendNotification("Build successful!")
-        }
-        failure {
-            // Actions to perform when the build fails
-            // Example: sendNotification("Build failed!")
-        }
-    }
+
 }
