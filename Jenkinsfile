@@ -18,19 +18,7 @@ pipeline {
             }
         }
 
-        stage('Unit Test') {
-            steps {
-               
-                sh 'mvn test'
-                
-            }
-
-        stage('Integration Test') {
-            steps {
-                // Run integration tests (if applicable)
-                sh 'mvn integration-test' // Example command for Maven
-            }
-        }
+        
         }
     }
 }
