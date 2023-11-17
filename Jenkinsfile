@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the repository
-                git url: 'https://github.com/binitapatel164/ecommerce.git', branch: 'main'
+                git url: 'https://github.com/binitapatel164/ecommerce.git', branch: 'master'
             }
         }
 
@@ -13,7 +13,7 @@ pipeline {
             steps {
                 // Perform build steps here
                 
-                git url: 'https://github.com/binitapatel164/ecommerce.git', branch: 'main'
+                git url: 'https://github.com/binitapatel164/ecommerce.git', branch: 'master'
                 sh 'mvn clean package'
             }
         }
