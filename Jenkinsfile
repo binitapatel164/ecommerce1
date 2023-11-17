@@ -9,6 +9,13 @@ pipeline {
             }
         }
 
+    stage('Build') {
+            steps {
+                // Build your application (e.g., using Maven, Gradle, etc.)
+                sh 'mvn clean package' // Example command for Maven
+            }
+        }
+
         
 
 
