@@ -26,7 +26,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                // Deploy the application to a server or cloud platform
+                // Deploy the application to a server 
                 sh 'scp target/app.war user@your-server:/path/to/deploy' // Example command using SCP
             }
         }
