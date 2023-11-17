@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Your build commands (e.g., compiling, packaging)
-                bat ''
+                sh ''
             }
         }
         
