@@ -1,18 +1,37 @@
 pipeline {
     agent any
-
+    
     stages {
         stage('Checkout') {
             steps {
-                // Checkout source code from version control (e.g., Git)
-                git 'https://github.com/binitapatel164/ecommerce1'
+                // Checkout the repository
+                git url: 'https://github.com/binitapatel164/ecommerce.git', branch: 'main'
             }
         }
 
-        
+        stage('Build') {
+            steps {
+                // Perform build steps here
+                
+                git url: 'https://github.com/binitapatel164/ecommerce.git', branch: 'main'
+                sh 'mvn clean package'
+            }
+        }
 
+        stage('Unit Test') {
+            steps {
+               
+                sh 'mvn test'
+                
+            }
 
+        stage('Integration Test') {
+            steps {
+                // Run integration tests (if applicable)
+                sh 'mvn integration-test' // Example command for Maven
+            }
+        }
+        }
     }
-
-
 }
+
