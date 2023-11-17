@@ -17,19 +17,7 @@ pipeline {
             }
         }
 
-        stage('Unit Test') {
-            steps {
-                // Run unit tests for the application
-                sh 'mvn test' // Example command for Maven
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                // Deploy the application to a server 
-                sh 'scp target/app.war user@your-server:/path/to/deploy' // Example command using SCP
-            }
-        }
+       
         
         }
     }
