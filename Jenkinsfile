@@ -11,7 +11,7 @@ pipeline {
         
         stage('Build') {
             steps {
-                // Build your application (e.g., using npm, Maven, etc.)
+                // Build the application 
                 bat 'npm install' // or any build command relevant to your project
             }
         }
@@ -19,14 +19,14 @@ pipeline {
         stage('Test') {
             steps {
                 // Run tests
-                bat 'npm test' // or any test command relevant to your project
+                bat 'npm test'
             }
         }
         
         stage('Deploy') {
             steps {
                 // Deploy the application
-                bat 'npm run deploy' // or any deploy command relevant to your project
+                bat 'npm run deploy' 
             }
         }
     }
