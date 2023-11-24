@@ -1,35 +1,54 @@
 pipeline {
-    agent any
-    
+    agent { 
+        docker { 
+            image 'maven:3.3.3'
+        } 
+    }
+
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout code from version control
-                git 'https://github.com/binitapatel164/ecommerce1'
-            }
-        }
-        
+
         stage('Build') {
             steps {
-                // Build the application 
-                bat 'npm install' // or any build command relevant to your project
+                // java -version
+                sh 'java -version'
+                // build the maven project
+                sh 'mvn clean install'
+                sh "ls"
+                sh "ls target"
+                sh "mv target/auth-course-0.0.1-SNAPSHOT.war target/ROOT.war"
+
+                stash includes: 'target/ROOT.war', name: 'myStash'
+
             }
         }
-        
-        stage('Test') {
-            steps {
-                // Run tests
-                bat 'npm test'
+
+        stage('SSH transfer') {
+            steps([$class: 'BapSshPromotionPublisherPlugin']) {
+                sh "ls"
+                sh "ls target"
+                sshPublisher(
+                    continueOnError: false, failOnError: true,
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: "Host2",
+                            verbose: true,
+                            transfers: [
+                                sshTransfer(sourceFiles: "target/ROOT.war", remoteDirectory: "/docker-tomcat-server/data", removePrefix: "target")
+                            ]
+
+                        )
+                    ]
+                )
             }
         }
-        
-        stage('Deploy') {
-            steps {
-                // Deploy the application
-                bat 'npm run deploy' 
-            }
+
+    }
+
+    post {
+        always {
+            // Unstash the file(s) from the stash and move them to the artifacts folder
+            unstash 'myStash'
+            archiveArtifacts artifacts: 'target/ROOT.war', fingerprint: true
         }
     }
-    
-   
 }
