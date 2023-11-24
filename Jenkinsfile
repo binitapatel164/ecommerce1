@@ -11,13 +11,13 @@ pipeline {
         
         stage('Build') {
             steps {
-                bat 'msbuild.exe YourEcommerceApp.sln' // Build the solution using MSBuild
+                bat 'npm install' // Build the solution using MSBuild
             }
         }
         
         stage('Unit Tests') {
             steps {
-                bat 'YourTestFramework.exe' // Run unit tests (replace YourTestFramework with your test runner)
+                bat 'npm start' // Run unit tests (replace YourTestFramework with your test runner)
             }
         }
         
@@ -26,16 +26,6 @@ pipeline {
                 // Perform deployment steps here (e.g., copy artifacts to a server, publish to a web host, etc.)
                 // You may use specific deployment tools or commands suitable for your ecommerce app
             }
-        }
-    }
-    post {
-        success {
-            // Actions to take when the pipeline successfully completes
-            // For example, sending notifications, triggering other jobs, etc.
-        }
-        failure {
-            // Actions to take when the pipeline fails
-            // For example, sending notifications, cleaning up resources, etc.
         }
     }
 }
