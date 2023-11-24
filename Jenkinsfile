@@ -1,35 +1,41 @@
 pipeline {
-    agent any
-    
+    agent {
+        label 'windows' // Specify the Windows agent where Jenkins runs
+    }
     stages {
         stage('Checkout') {
             steps {
-                // Checkout code from version control
-                git 'https://github.com/binitapatel164/ecommerce1.git'
+                checkout scm // Pull the source code from your version control system (e.g., Git)
             }
         }
         
         stage('Build') {
             steps {
-                // Build the application 
-                bat 'npm install' // or any build command relevant to your project
+                bat 'msbuild.exe YourEcommerceApp.sln' // Build the solution using MSBuild
             }
         }
         
-        stage('Test') {
+        stage('Unit Tests') {
             steps {
-                // Run tests
-                bat 'npm test'
+                bat 'YourTestFramework.exe' // Run unit tests (replace YourTestFramework with your test runner)
             }
         }
         
         stage('Deploy') {
             steps {
-                // Deploy the application
-                bat 'npm run deploy' 
+                // Perform deployment steps here (e.g., copy artifacts to a server, publish to a web host, etc.)
+                // You may use specific deployment tools or commands suitable for your ecommerce app
             }
         }
     }
-    
-   
+    post {
+        success {
+            // Actions to take when the pipeline successfully completes
+            // For example, sending notifications, triggering other jobs, etc.
+        }
+        failure {
+            // Actions to take when the pipeline fails
+            // For example, sending notifications, cleaning up resources, etc.
+        }
+    }
 }
