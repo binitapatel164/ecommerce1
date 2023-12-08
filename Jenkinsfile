@@ -5,34 +5,47 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout source code from version control (e.g., Git)
-                git 'https://github.com/binitapatel164/ecommerce1.git'
+                git 'https://github.com/binitapatel164/ecommerce1'
             }
         }
 
         stage('Build') {
             steps {
-                echo "Building...";
+                // Build your application (e.g., using Maven, Gradle, etc.)
+                echo "mvn clean package"; 
             }
         }
 
         stage('Unit Test') {
             steps {
-               echo "Unit test";
+                // Run unit tests for the application
+                echo "mvn test"; 
             }
         }
 
         stage('Integration Test') {
             steps {
-                echo "test";
+                // Run integration tests (if applicable)
+                echo "mvn integration-test"; 
             }
         }
 
         stage('Deploy') {
             steps {
-                echo "deploy";
+                // Deploy the application to a server or cloud platform
+                echo "scp target/app.war user@your-server:/path/to/deploy"; 
+            }
         }
 
+        stage('Quality Check') {
+            steps {
+                // Perform static code analysis, security scans, etc.
+                echo "some_quality_check_command"; 
+            }
+        }
 
+        
     }
 
+    
 }
