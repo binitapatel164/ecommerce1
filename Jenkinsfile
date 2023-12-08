@@ -11,25 +11,25 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'echo "Building..."'
+                bat 'echo "Building..."'
             }
         }
 
         stage('Unit Test') {
             steps {
-               sh 'Unit test'
+               bat 'Unit test'
             }
         }
 
         stage('Integration Test') {
             steps {
-                sh 'test'
+                bat 'test'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'deploy'
+                bat 'deploy'
         }
 
 
