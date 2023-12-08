@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Build your application (e.g., using Maven, Gradle, etc.)
-                bat 'mvn clean package' // Assuming Maven is available in the environment
+                //bat 'mvn clean package' // Assuming Maven is available in the environment
                 bat 'npm install'      // Install project dependencies (assuming Node.js is available)
                 bat 'npm run build'    // Build the React project
             }
