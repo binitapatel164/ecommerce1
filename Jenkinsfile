@@ -11,25 +11,25 @@ pipeline {
 
         stage('Build') {
             steps {
-                
+                sh 'echo "Building..."'
             }
         }
 
         stage('Unit Test') {
             steps {
-               
+               sh 'Unit test'
             }
         }
 
         stage('Integration Test') {
             steps {
-                
+                sh 'test'
             }
         }
 
         stage('Deploy') {
             steps {
-                
+                sh 'deploy'
         }
 
 
