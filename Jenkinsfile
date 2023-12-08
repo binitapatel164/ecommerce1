@@ -12,26 +12,16 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Build your application (e.g., using Maven, Gradle, etc.)
-                //bat 'mvn clean package' // Assuming Maven is available in the environment
-                bat 'npm install'      // Install project dependencies (assuming Node.js is available)
-               // bat 'npm run build'    // Build the React project
+                bat 'npm install'      // Install project dependencies
             }
         }
 
-        stage('Unit Test') {
-            steps {
-                bat 'npm start' // Run tests if applicable (assuming npm test runs the unit tests)
+        stage('test') {
+            steps{
+                bat 'npm test'
             }
         }
-
-        stage('Integration Test') {
-            steps {
-                // Run integration tests (if applicable)
-                bat 'mvn integration-test' // Assuming Maven is used for integration tests
-            }
-        }
-
+        
         stage('Deploy') {
             steps {
                 // Deploy the application to a server or cloud platform
