@@ -21,7 +21,7 @@ pipeline {
 
         stage('Unit Test') {
             steps {
-                bat 'npm test' // Run tests if applicable (assuming npm test runs the unit tests)
+                bat 'npm start' // Run tests if applicable (assuming npm test runs the unit tests)
             }
         }
 
