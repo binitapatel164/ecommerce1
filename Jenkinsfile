@@ -20,13 +20,8 @@ pipeline {
 
         stage('Unit Test') {
             steps {
-                //tool name: 'Nodejs', type: 'nodejs'
-       //         sh "${npmhome}/bin/npm install"          // Install project dependencies
-         //       sh "${npmhome}/bin/npm run build"        // Build the React project
-           //     sh  "${npmhome}/bin/npm test"             // Run tests if applicable
-       
-                bat  'npm test'             // Run tests if applicable
-            }
+                     bat  'npm test'             // Run tests if applicable
+                    }
         }
 
         stage('Integration Test') {
