@@ -13,15 +13,21 @@ pipeline {
             steps {
                 // Build your application (e.g., using Maven, Gradle, etc.)
                 echo "mvn clean package"; 
+                bat 'npm install'          // Install project dependencies
+                bat 'npm run build'        // Build the React project
             }
         }
 
         stage('Unit Test') {
             steps {
-                // Run unit tests for the application
-                echo "mvn test"; 
+                //tool name: 'Nodejs', type: 'nodejs'
+       //         sh "${npmhome}/bin/npm install"          // Install project dependencies
+         //       sh "${npmhome}/bin/npm run build"        // Build the React project
+           //     sh  "${npmhome}/bin/npm test"             // Run tests if applicable
+       
+                bat  'npm test'             // Run tests if applicable
             }
-        }
+        }
 
         stage('Integration Test') {
             steps {
