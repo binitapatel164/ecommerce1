@@ -15,22 +15,5 @@ pipeline {
                 bat 'npm install'      // Install project dependencies
             }
         }
-
-        
-        stage('Deploy') {
-            steps {
-                // Deploy the application to a server or cloud platform
-                echo "scp target/app.war user@your-server:/path/to/deploy"
-                // This is a placeholder, replace it with the actual deployment command
-            }
-        }
-
-        stage('Quality Check') {
-            steps {
-                // Perform static code analysis, security scans, etc.
-                echo "some_quality_check_command"
-                // This is a placeholder, replace it with the actual quality check command
-            }
-        }
     }
 }
