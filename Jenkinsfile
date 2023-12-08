@@ -12,35 +12,35 @@ pipeline {
         stage('Build') {
             steps {
                 // Build your application (e.g., using Maven, Gradle, etc.)
-                echo "mvn clean package"; // Example command for Maven
+                echo "mvn clean package"; 
             }
         }
 
         stage('Unit Test') {
             steps {
                 // Run unit tests for the application
-                echo "mvn test"; // Example command for Maven
+                echo "mvn test"; 
             }
         }
 
         stage('Integration Test') {
             steps {
                 // Run integration tests (if applicable)
-                echo "mvn integration-test"; // Example command for Maven
+                echo "mvn integration-test"; 
             }
         }
 
         stage('Deploy') {
             steps {
                 // Deploy the application to a server or cloud platform
-                echo "scp target/app.war user@your-server:/path/to/deploy"; // Example command using SCP
+                echo "scp target/app.war user@your-server:/path/to/deploy"; 
             }
         }
 
         stage('Quality Check') {
             steps {
                 // Perform static code analysis, security scans, etc.
-                echo "some_quality_check_command"; // Replace with actual command
+                echo "some_quality_check_command"; 
             }
         }
 
