@@ -11,25 +11,25 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo "Building..."
+                echo "Building...";
             }
         }
 
         stage('Unit Test') {
             steps {
-               echo 'Unit test'
+               echo "Unit test";
             }
         }
 
         stage('Integration Test') {
             steps {
-                echo 'test'
+                echo "test";
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'deploy'
+                echo "deploy";
         }
 
 
