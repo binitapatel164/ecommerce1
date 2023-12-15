@@ -15,5 +15,6 @@ pipeline {
                 bat 'npm install'      // Install project dependencies
             }
         }
+
     }
 }
