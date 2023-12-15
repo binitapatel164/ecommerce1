@@ -16,5 +16,17 @@ pipeline {
             }
         }
 
+            stage('test') {
+            steps {
+                bat 'npm start'      
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Deploy the application to a server or cloud platform
+                echo "scp target/app.war user@your-server:/path/to/deploy"; 
+            }
+        }
     }
 }
